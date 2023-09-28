@@ -1,7 +1,7 @@
 ---
 title: "GSS challange Less Data"
-author: "Put your name here!"
-date: "put the date here"
+author: "Anthony Falconio"
+date: "Fall 2023"
 output: html_document
 ---
 
@@ -68,9 +68,10 @@ barchartGC(~race + cappun,data=mydata, type="percent")
 
 ```{r}
 chisq.test(table1)
-print("____________")
+print("_____________")
 chisqtestGC(table1)
 ```
+
 ```{r}
 fisherXY(mydata$race,mydata$cappun)
 ```
