@@ -30,15 +30,24 @@ mydata <- na.omit(mydata)
 Is attitude toward capitol punishment (cappun) independent of race (race)?
 If not, then whose view differs from whom??
 
-Hyp: there is no signifcant difference in the data
+$H_0$ There is no significant difference in the data
 
-alt hyp: there is a significant difference in the data
+$H_A$ There is a significant difference in the data
 
+```{r eval=FALSe}
+mydata <- mydata %>%
+mutate(across(where(is.character), as.factor))
+```
 
 # Methods
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method. Discuss what data manipulations may be needed for example subsetting or other binning procedures and what sort of graphical displays and inferential tools will be used!-->
 
+I am going to use the CandP helper files to help me compare two categorical types of data called cappun and race. A bar chart will be used in this case as it involves a comparison of cat-car. Fav stats will also be run after the fact to show both the graphical and numerical results.
+
+$\Huge\chi^2=\sum\frac{(0-E)^2}{0}$
+
+A chi-squared test will then be run under the inferential results to see if there is a significant difference in the data. Since there are more than two factors in the variable "race" a fisherXY function will be used with the fisher test to analyze the difference in the data if present.
 # Results
 
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
@@ -48,6 +57,11 @@ alt hyp: there is a significant difference in the data
 ### Graphical Descriptive Results
 
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question. Bottom line is to explain the features of the graph that are relevant to conforming or departing to what is expected by your null hypothesis !-->
+
+```{r}
+barchartGC(~race + cappun,data=mydata)
+barchartGC(~race + cappun,data=mydata, type="percent")
+```
 
 
 
@@ -59,6 +73,10 @@ alt hyp: there is a significant difference in the data
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+```{r}
+table1 <- xtabs(~race + cappun, data=mydata)
+rowPerc(table1)
+```
 
 
 
@@ -70,7 +88,13 @@ alt hyp: there is a significant difference in the data
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
 
-`
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+```
+```{r}
+fisherXY(mydata$race,mydata$cappun,printAll = TRUE)
+```
 
 
 ## More data version
