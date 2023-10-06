@@ -74,7 +74,7 @@ print("______")
 colPerc(table1)
 ```
 
-With less data, the trends data from the master branch still holds true about each race's correlation to whether they support or oppose capital punishment. The data stays consistent across the master branch and the number 2 branch.
+With less data, the trends data from the master branch still holds true about each race's correlation to whether they support or oppose capital punishment. The data stays consistent across the master branch and the number 2 branch but, the graphs in the bar charts between opposing and favoring capital punishment become smaller with less data.
 
 
 ## Inferential Results
@@ -91,8 +91,9 @@ chisqtestGC(table1)
 fisherXY(mydata$race,mydata$cappun)
 ```
 
-
+The P-value in the inferential results tests is even smaller than when run with more data which signifies that there is a more significant difference in the data with less data available when compared to when there is more data available. The observed counts with less data only include 821 people when compared to the observed counts with more data including 2695 people.
 
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
+Ultimately, the branch with less data available creates a more significant difference in the data which create a wider difference between the observed groups and the preferences of favoring or opposing capital punishment. More data results in smaller differences between the variable groups in the data set.
