@@ -34,7 +34,7 @@ $H_0$ There is no significant difference in the data
 
 $H_A$ There is a significant difference in the data
 
-```{r eval=FALSe}
+```{r eval=FALSE}
 mydata <- mydata %>%
 mutate(across(where(is.character), as.factor))
 ```
@@ -48,6 +48,7 @@ I am going to use the CandP helper files to help me compare two categorical type
 $\Huge\chi^2=\sum\frac{(0-E)^2}{0}$
 
 A chi-squared test will then be run under the inferential results to see if there is a significant difference in the data. Since there are more than two factors in the variable "race" a fisherXY function will be used with the fisher test to analyze the difference in the data if present.
+
 # Results
 
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
@@ -63,7 +64,9 @@ barchartGC(~race + cappun,data=mydata)
 barchartGC(~race + cappun,data=mydata, type="percent")
 ```
 
+These two bar charts representative of the data show that the number of people in the survey skewed mostly towards the white race with a higher frequency in general while most within that race support capital punishment while the black and other race are against capital punishment.
 
+The second bar chart shows the percentages within each race that either favor or oppose capital punishment. The white race is consistent with the first bar graph as the majority favor capital punishment while the minority oppose as is the same with the black race with the majority opposing it and the minority favoring it. The main difference comes from the other race in the second graph as it actually shows that the majority within this group are in favor of capital punishment while the minority oppose it.
 
 ## Now with The Most data (fewer variables gives more data points)
 
@@ -78,7 +81,7 @@ table1 <- xtabs(~race + cappun, data=mydata)
 rowPerc(table1)
 ```
 
-
+This table shows data consistent with the second bar chart show as the percentages match in terms of race and preference of favoring or opposing capital punishment.
 
 ## Now with More data
 
@@ -96,6 +99,7 @@ chisqtestGC(table1)
 fisherXY(mydata$race,mydata$cappun,printAll = TRUE)
 ```
 
+The Chi-squared test shows that the p-value within the data is representative of a significant difference in the data between the races when it comes to favoring or opposing capital punishment. The observed counts also correlate with the counts expected by null. The fisher XY test corroborates the p-value and the data table showing the differences in races between opinions on capital punishment.
 
 ## More data version
 
