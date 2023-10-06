@@ -74,7 +74,7 @@ print("______")
 colPerc(table1)
 ```
 
-
+With less data, the trends data from the master branch still holds true about each race's correlation to whether they support or oppose capital punishment. The data stays consistent across the master branch and the number 2 branch.
 
 
 ## Inferential Results
